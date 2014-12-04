@@ -48,17 +48,21 @@ public class Main extends javax.swing.JFrame {
         enterFilename = new javax.swing.JTextField();
         enterOutput = new javax.swing.JTextField();
         start = new javax.swing.JButton();
+        qualityValue = new javax.swing.JSlider();
+        qualityAnzeige = new javax.swing.JLabel();
+        qualityAnzeige1 = new javax.swing.JLabel();
+        qualityAnzeige2 = new javax.swing.JLabel();
+        qualityAnzeige3 = new javax.swing.JLabel();
+        qualityAnzeige4 = new javax.swing.JLabel();
+        qualityLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        enterFilename.setText("Enter filename");
         enterFilename.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterFilenameActionPerformed(evt);
             }
         });
-
-        enterOutput.setText("Enter Outputname");
 
         start.setText("Start Compressing");
         start.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +71,24 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        qualityValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                qualityValueStateChanged(evt);
+            }
+        });
+
+        qualityAnzeige.setText("Quality: ");
+
+        qualityAnzeige1.setText("Input: ");
+
+        qualityAnzeige2.setText("Output: ");
+
+        qualityAnzeige3.setText("0");
+
+        qualityAnzeige4.setText("10");
+
+        qualityLabel.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,21 +96,61 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(enterFilename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enterOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(start))
-                .addContainerGap(234, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(start)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(qualityAnzeige3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(qualityValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(qualityAnzeige4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(qualityAnzeige)
+                                .addGap(158, 158, 158)))
+                        .addGap(44, 44, 44)
+                        .addComponent(qualityLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(qualityAnzeige1)
+                            .addComponent(enterFilename, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(enterOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(qualityAnzeige2))
+                        .addGap(85, 85, 85))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(enterFilename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(enterOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(qualityAnzeige1)
+                    .addComponent(qualityAnzeige2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterFilename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enterOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(qualityAnzeige)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(qualityValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(qualityLabel))
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(qualityAnzeige3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(qualityAnzeige4, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(start)
-                .addGap(50, 50, 50))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -103,7 +165,6 @@ public class Main extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             
-            Scanner user_input = new Scanner( System.in );
             
             //inGoing Filename
             String filename;
@@ -112,6 +173,7 @@ public class Main extends javax.swing.JFrame {
             //Get Filename from Textbox (enterFilename)
             filename = this.enterFilename.getText();
             File imageFile = new File(filename);
+            System.out.print(filename);
             
             //Outgoing Filename
             String filename_output;
@@ -119,12 +181,18 @@ public class Main extends javax.swing.JFrame {
             
             //Get Output from Textbox (enterOutput)
             filename_output = this.enterOutput.getText();
+            System.out.print(filename_output);
             
             File compressedImageFile = new File(filename_output);
             is = new FileInputStream(imageFile);
             OutputStream os = new FileOutputStream(compressedImageFile);
             
+            
+            
             float quality = 0.5f;
+            
+            quality = (this.qualityValue.getValue()/100);
+            
             
             // create a BufferedImage as the result of decoding the supplied InputStream
             BufferedImage image = null;
@@ -171,6 +239,17 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_startActionPerformed
 
+    private void qualityValueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_qualityValueStateChanged
+        // TODO add your handling code here:
+        
+        Integer valueInt;
+        valueInt = this.qualityValue.getValue();
+        System.out.print(valueInt/100);
+        String valueQuality  =  valueInt.toString();
+               
+        this.qualityLabel.setText(valueQuality);
+    }//GEN-LAST:event_qualityValueStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -213,6 +292,13 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField enterFilename;
     private javax.swing.JTextField enterOutput;
+    private javax.swing.JLabel qualityAnzeige;
+    private javax.swing.JLabel qualityAnzeige1;
+    private javax.swing.JLabel qualityAnzeige2;
+    private javax.swing.JLabel qualityAnzeige3;
+    private javax.swing.JLabel qualityAnzeige4;
+    private javax.swing.JLabel qualityLabel;
+    private javax.swing.JSlider qualityValue;
     private javax.swing.JButton start;
     // End of variables declaration//GEN-END:variables
 }
